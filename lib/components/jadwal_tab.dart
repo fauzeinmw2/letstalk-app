@@ -167,7 +167,74 @@ class JadwalTab extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
+                          showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                              content: Container(
+                                height: 238,
+                                width: 327,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(32)
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text("To unlock this content in full you have to pay for:", textAlign: TextAlign.center,),
+                                    SizedBox(height: 23,),
+                                    Text("Rp 10.000", style: TextStyle(color: Color(0xffff1d65), fontSize: 18, fontWeight: FontWeight.w600)),
+                                    SizedBox(height: 23,),
+                                    Text("Are you sure want to but this room?", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500))
+                                  ],
+                                ),
+                              ),
 
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context, 'Cancel'),
+                                  child: const Text('No'),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    showDialog<String>(
+                                      context: context,
+                                      builder: (BuildContext context) => AlertDialog(
+                                        content: Container(
+                                          height: 238,
+                                          width: 327,
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(32)
+                                          ),
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              Text("Choose your payment method", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
+                                              SizedBox(height: 23,),
+                                              Text("By connecting your wallet, you agree to our Terms of Service and our Privacy Policy.", style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500), textAlign: TextAlign.center,)
+                                            ],
+                                          ),
+                                        ),
+
+                                        actions: <Widget>[
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(context, 'Cancel'),
+                                            child: const Text('No'),
+                                          ),
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(context, 'OK'),
+                                            child: const Text('Yes'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                  child: const Text('Yes'),
+                                ),
+                              ],
+                            ),
+                          );
                         },
                       ),
                     ),
@@ -178,12 +245,6 @@ class JadwalTab extends StatelessWidget {
           ),
         );
       },
-      // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      //   crossAxisCount: 1,
-      //   // childAspectRatio: 3 / 2,
-      //   // crossAxisSpacing: 3,
-      //   // mainAxisSpacing: 2,
-      // ),
     );
   }
 }

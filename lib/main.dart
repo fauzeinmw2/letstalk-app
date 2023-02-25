@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:letstalk_app/pages/home_page.dart';
 import 'package:letstalk_app/pages/login_page.dart';
 import 'package:letstalk_app/pages/creatorProfile_page.dart';
+import 'package:letstalk_app/pages/reels_page.dart';
 import 'package:letstalk_app/pages/userProfile_page.dart';
 
 
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: UserProfilePage(),
+      home: HomePage(),
     );
   }
 }

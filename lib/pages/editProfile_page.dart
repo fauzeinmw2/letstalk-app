@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:letstalk_app/components/jadwal_tab.dart';
 import 'package:letstalk_app/components/reels_tab.dart';
 import 'package:letstalk_app/components/privateCall_tab.dart';
+import 'package:letstalk_app/pages/changePassword_page.dart';
 import 'package:letstalk_app/pages/register_page.dart';
 
 class EditProfilePage extends StatelessWidget {
@@ -13,7 +14,30 @@ class EditProfilePage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text("Edit Profile", style: TextStyle(color: Colors.black),),
-        leading: Icon(Icons.arrow_back, color: Colors.black),
+        // leading: Icon(Icons.arrow_back, color: Colors.black),
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(
+              10,
+              10,
+              10,
+              10,
+            ),
+            height: 48,
+            width: 48,
+            decoration: BoxDecoration(
+              color: Colors.white,
+            ),
+            child: const Icon(
+                Icons.arrow_back_sharp,
+                size: 30,
+                color: Colors.black
+            ),
+          ),
+        ),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -220,7 +244,7 @@ class EditProfilePage extends StatelessWidget {
                                             Text("English", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white),)
                                           ]
                                       ),
-                                      Image.asset("assets/icons/panah.png"),
+                                      Image.asset("assets/icons/panah_bawah_putih.png"),
                                     ],
                                   ),
                                 ),
@@ -254,7 +278,7 @@ class EditProfilePage extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => EditProfilePage()
+                                      builder: (context) => ChangePasswordPage()
                                   ),
                                 );
                               },
@@ -275,7 +299,7 @@ class EditProfilePage extends StatelessWidget {
                                             Text("Change Your Password", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white),)
                                           ]
                                       ),
-                                      Image.asset("assets/icons/panah.png"),
+                                      Image.asset("assets/icons/panah_putih.png"),
                                     ],
                                   ),
                                 ),
@@ -295,30 +319,4 @@ class EditProfilePage extends StatelessWidget {
       ),
     );
   }
-}
-
-
-class MyDelegate extends SliverPersistentHeaderDelegate{
-  MyDelegate(this.tabBar);
-  final TabBar tabBar;
-
-  @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return Container(
-      color: Colors.white,
-      child: tabBar,
-    );
-  }
-
-  @override
-  double get maxExtent => tabBar.preferredSize.height;
-
-  @override
-  double get minExtent => tabBar.preferredSize.height;
-
-  @override
-  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
-    return false;
-  }
-
 }

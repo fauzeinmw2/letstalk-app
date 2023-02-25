@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:letstalk_app/components/jadwal_tab.dart';
 import 'package:letstalk_app/components/reels_tab.dart';
 import 'package:letstalk_app/components/privateCall_tab.dart';
+import 'package:letstalk_app/pages/followedCreator_page.dart';
 import 'package:letstalk_app/pages/register_page.dart';
 import 'package:letstalk_app/pages/editProfile_page.dart';
+import 'package:letstalk_app/pages/schedule_page.dart';
 
 class UserProfilePage extends StatelessWidget {
 
@@ -14,7 +16,29 @@ class UserProfilePage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text("Profile", style: TextStyle(color: Colors.black),),
-        leading: Icon(Icons.arrow_back, color: Colors.black),
+          leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              margin: const EdgeInsets.fromLTRB(
+                10,
+                10,
+                10,
+                10,
+              ),
+              height: 48,
+              width: 48,
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: const Icon(
+                  Icons.arrow_back_sharp,
+                  size: 30,
+                  color: Colors.black
+              ),
+            ),
+          )
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -174,7 +198,7 @@ class UserProfilePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => RegisterPage()
+                          builder: (context) => FollowedCreaotorPage()
                       ),
                     );
                   },
@@ -213,7 +237,7 @@ class UserProfilePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => RegisterPage()
+                          builder: (context) => SchedulePage()
                       ),
                     );
                   },
