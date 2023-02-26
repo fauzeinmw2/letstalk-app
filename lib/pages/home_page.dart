@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:letstalk_app/components/card_bottomModal.dart';
 import 'package:letstalk_app/components/card_tab.dart';
 import 'package:letstalk_app/components/jadwal_tab.dart';
+import 'package:letstalk_app/pages/reels_page.dart';
 import 'package:letstalk_app/pages/userProfile_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -124,9 +125,6 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    setState(() {
-                                      current = index;
-                                    });
                                   },
                                   child: AnimatedContainer(
                                     duration: const Duration(milliseconds: 300),
@@ -169,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                           }),
                     ),
 
-                    CardTab()
+                    CardTab(jenis: "kategori",)
                   ],
                 ),
               ),
@@ -382,12 +380,13 @@ class _HomePageState extends State<HomePage> {
                                 height: 215,
                                 width: 164,
                                 decoration: BoxDecoration(
-                                  color: Colors.green,
+                                  color: Color(0xffff66a3),
                                   borderRadius: BorderRadius.circular(50)
                                 ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
+                                    Image.asset("assets/images/enter.png",),
                                     Padding(
                                       padding: const EdgeInsets.only(bottom: 36),
                                       child: Text(
@@ -414,12 +413,13 @@ class _HomePageState extends State<HomePage> {
                                 height: 215,
                                 width: 164,
                                 decoration: BoxDecoration(
-                                    color: Colors.green,
+                                    color: Color(0xffff66a3),
                                     borderRadius: BorderRadius.circular(50)
                                 ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
+                                    Image.asset("assets/images/edu.png",),
                                     Padding(
                                       padding: const EdgeInsets.only(bottom: 36),
                                       child: Text(
@@ -450,12 +450,13 @@ class _HomePageState extends State<HomePage> {
                                 height: 215,
                                 width: 164,
                                 decoration: BoxDecoration(
-                                    color: Colors.green,
+                                    color: Color(0xffff66a3),
                                     borderRadius: BorderRadius.circular(50)
                                 ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
+                                    Image.asset("assets/images/healt.png",),
                                     Padding(
                                       padding: const EdgeInsets.only(bottom: 36),
                                       child: Text(
@@ -474,7 +475,7 @@ class _HomePageState extends State<HomePage> {
 
                             GestureDetector(
                               onTap: (){
-                                _showBottomModal("Healt");
+                                _showBottomModal("Sport");
                               },
 
                               child: Container(
@@ -482,16 +483,17 @@ class _HomePageState extends State<HomePage> {
                                 height: 215,
                                 width: 164,
                                 decoration: BoxDecoration(
-                                    color: Colors.green,
+                                    color: Color(0xffff66a3),
                                     borderRadius: BorderRadius.circular(50)
                                 ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
+                                    Image.asset("assets/images/bisnis.png",),
                                     Padding(
                                       padding: const EdgeInsets.only(bottom: 36),
                                       child: Text(
-                                        "Healt",
+                                        "Sport",
                                         style: TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.w600,
@@ -516,6 +518,39 @@ class _HomePageState extends State<HomePage> {
           ]
         ),
       ),
+
+        floatingActionButton: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FloatingActionButton(
+                child: Icon(
+                    Icons.home
+                ),
+                focusColor: Colors.green,
+                autofocus: true,
+                onPressed: () {
+                  //...
+                },
+                heroTag: null,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              FloatingActionButton(
+                child: Image.asset("assets/icons/reel.png"),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ReelsPage()
+                    ),
+                  );
+                },
+                heroTag: null,
+              )
+            ]
+        ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

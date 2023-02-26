@@ -3,7 +3,15 @@ import 'package:letstalk_app/components/jadwal_tab.dart';
 import 'package:letstalk_app/components/reels_tab.dart';
 import 'package:letstalk_app/components/privateCall_tab.dart';
 
+
 class CreatorProfilePage extends StatelessWidget {
+
+  CreatorProfilePage({super.key, required this.name, required this.photo, required this.profesi});
+
+  String name;
+  String photo;
+  String profesi;
+
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +19,29 @@ class CreatorProfilePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: Icon(Icons.arrow_back, color: Colors.black),
+          leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              margin: const EdgeInsets.fromLTRB(
+                10,
+                10,
+                10,
+                10,
+              ),
+              height: 48,
+              width: 48,
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: const Icon(
+                  Icons.arrow_back_sharp,
+                  size: 30,
+                  color: Colors.black
+              ),
+            ),
+          ),
       ),
       body: DefaultTabController(
         length: 3,
@@ -36,7 +66,7 @@ class CreatorProfilePage extends StatelessWidget {
                             height: 100.0,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                  fit: BoxFit.cover, image: NetworkImage("https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/948.jpg")),
+                                  fit: BoxFit.cover, image: NetworkImage(this.photo)),
                               borderRadius: BorderRadius.all(Radius.circular(100.0)),
                               color: Colors.redAccent,
                             ),
@@ -51,14 +81,14 @@ class CreatorProfilePage extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              'Oma Roob',
+                              this.name,
                               style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w600),
                             ),
 
                             SizedBox(height: 10,),
 
                             Text(
-                              'Artist',
+                              this.profesi,
                               style: TextStyle(color: Colors.grey[700]),
                             ),
 
@@ -112,7 +142,7 @@ class CreatorProfilePage extends StatelessWidget {
           body: TabBarView(
             children: [
               ReelsTab(),
-              JadwalTab(),
+              JadwalTab(name: this.name),
               PrivateCallTab()
             ]
           ),

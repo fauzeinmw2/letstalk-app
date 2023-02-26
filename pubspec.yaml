@@ -40,6 +40,8 @@ dependencies:
   card_swiper: ^2.0.4
   video_player: ^2.5.2
   chewie: ^1.4.0
+  http: ^0.13.5
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:

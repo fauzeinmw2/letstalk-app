@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:letstalk_app/pages/home_page.dart';
 import 'package:letstalk_app/pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -161,7 +162,12 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           onPressed: () {
-
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage()
+                              ),
+                            );
                           },
                         ),
                       ),

@@ -32,6 +32,32 @@ class ReelsPage extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FloatingActionButton(
+              child: Icon(
+                  Icons.home
+              ),
+              focusColor: Colors.green,
+              autofocus: true,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              heroTag: null,
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            FloatingActionButton(
+              child: Image.asset("assets/icons/reel.png"),
+              onPressed: () {
+              },
+              heroTag: null,
+            )
+          ]
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
